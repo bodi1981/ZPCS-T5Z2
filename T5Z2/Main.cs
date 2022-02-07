@@ -87,6 +87,12 @@ namespace T5Z2
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (dgvEmployees.Rows.Count == 0)
+            {
+                MessageBox.Show($"Proszę wybrać pracownika", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             var employeeId = (int)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.Id)].Value;
             var addEditEmployees = new AddEditEmployee(employeeId);
             addEditEmployees.Text = "Edytuj";
@@ -97,6 +103,12 @@ namespace T5Z2
 
         private void btnDismiss_Click(object sender, EventArgs e)
         {
+            if (dgvEmployees.Rows.Count == 0)
+            {
+                MessageBox.Show($"Proszę wybrać pracownika", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             DialogResult result = MessageBox.Show($"Czy chcesz zwolnić pracownika {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.FirstName)].Value} {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.LastName)].Value}?", "Zwolnienie pracownika", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
             if (result == DialogResult.Yes)
