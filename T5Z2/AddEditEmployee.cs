@@ -31,8 +31,8 @@ namespace T5Z2
                 tbId.Text = employee.Id.ToString();
                 tbFirstName.Text = employee.FirstName;
                 tbLastName.Text = employee.LastName;
-                tbEmploymentDate.Text = employee.EmploymentDate == DateTime.MinValue ? "" : employee.EmploymentDate.ToString("yyyy-MM-dd");
-                tbDismissalDate.Text = employee.DismissalDate == DateTime.MinValue ? "" : employee.DismissalDate.ToString("yyyy-MM-dd");
+                tbEmploymentDate.Text = employee.EmploymentDate.HasValue ? ((DateTime)employee.EmploymentDate).ToString("yyyy-MM-dd") : String.Empty;
+                tbDismissalDate.Text = employee.DismissalDate?.ToString("yyyy-MM-dd") ?? string.Empty;
                 tbSalary.Text = employee.Salary.ToString();
                 rtbFeedback.Text = employee.Feedback;
             }
@@ -104,10 +104,10 @@ namespace T5Z2
             }
         }
 
-        private DateTime GetDate(string date)
+        private DateTime? GetDate(string date)
         {
             if (date == "")
-                return DateTime.MinValue;
+                return null;
             if (DateTime.TryParse(date, out DateTime validDate))
             {
                 return validDate;
@@ -116,7 +116,7 @@ namespace T5Z2
                 return DateTime.MaxValue;
         }
 
-        private bool ValidateDate(DateTime date)
+        private bool ValidateDate(DateTime? date)
         {
             if (date == DateTime.MaxValue)
                 return false;

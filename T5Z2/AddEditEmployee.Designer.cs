@@ -36,7 +36,6 @@ namespace T5Z2
             this.label3 = new System.Windows.Forms.Label();
             this.lblEmploymentDate = new System.Windows.Forms.Label();
             this.lblDismissalDate = new System.Windows.Forms.Label();
-            this.tbSalary = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@ namespace T5Z2
             this.btnCancel = new System.Windows.Forms.Button();
             this.tbEmploymentDate = new System.Windows.Forms.TextBox();
             this.tbDismissalDate = new System.Windows.Forms.TextBox();
+            this.tbSalary = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -106,14 +106,6 @@ namespace T5Z2
             this.lblDismissalDate.Size = new System.Drawing.Size(82, 13);
             this.lblDismissalDate.TabIndex = 8;
             this.lblDismissalDate.Text = "Data zwolnienia";
-            // 
-            // tbSalary
-            // 
-            this.tbSalary.Location = new System.Drawing.Point(127, 157);
-            this.tbSalary.Name = "tbSalary";
-            this.tbSalary.Size = new System.Drawing.Size(182, 20);
-            this.tbSalary.TabIndex = 6;
-            this.tbSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSalary_KeyPress);
             // 
             // label6
             // 
@@ -182,6 +174,14 @@ namespace T5Z2
             this.tbDismissalDate.Size = new System.Drawing.Size(182, 20);
             this.tbDismissalDate.TabIndex = 5;
             // 
+            // tbSalary
+            // 
+            this.tbSalary.Location = new System.Drawing.Point(127, 157);
+            this.tbSalary.Name = "tbSalary";
+            this.tbSalary.Size = new System.Drawing.Size(182, 20);
+            this.tbSalary.TabIndex = 6;
+            this.tbSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSalary_KeyPress);
+            // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -221,7 +221,6 @@ namespace T5Z2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblEmploymentDate;
         private System.Windows.Forms.Label lblDismissalDate;
-        private System.Windows.Forms.TextBox tbSalary;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label label7;
@@ -230,5 +229,6 @@ namespace T5Z2
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbEmploymentDate;
         private System.Windows.Forms.TextBox tbDismissalDate;
+        private System.Windows.Forms.TextBox tbSalary;
     }
 }
