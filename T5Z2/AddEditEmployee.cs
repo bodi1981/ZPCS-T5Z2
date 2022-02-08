@@ -12,7 +12,7 @@ namespace T5Z2
         public AddEditEmployee(int id = 0)
         {
             InitializeComponent();
-            this._employeeId = id;
+            _employeeId = id;
             GetEmployeesData();
         }
 
