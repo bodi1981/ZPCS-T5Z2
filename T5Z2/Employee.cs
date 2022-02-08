@@ -9,7 +9,7 @@ namespace T5Z2
         public string LastName { get; set; }
         public DateTime? EmploymentDate { get; set; }
         public DateTime? DismissalDate { get; set; }
-        public int Salary { get; set; }
+        public decimal Salary { get; set; }
         public string Feedback { get; set; }
     }
 }

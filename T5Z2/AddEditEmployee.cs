@@ -33,7 +33,7 @@ namespace T5Z2
                 tbLastName.Text = employee.LastName;
                 tbEmploymentDate.Text = employee.EmploymentDate.HasValue ? ((DateTime)employee.EmploymentDate).ToString("yyyy-MM-dd") : String.Empty;
                 tbDismissalDate.Text = employee.DismissalDate?.ToString("yyyy-MM-dd") ?? string.Empty;
-                tbSalary.Text = employee.Salary.ToString();
+                nudSalary.Value = employee.Salary;
                 rtbFeedback.Text = employee.Feedback;
             }
         }
@@ -80,7 +80,7 @@ namespace T5Z2
                 LastName = tbLastName.Text,
                 EmploymentDate = GetDate(tbEmploymentDate.Text),
                 DismissalDate = GetDate(tbDismissalDate.Text),
-                Salary = int.TryParse(tbSalary.Text, out int salary) ? salary : 0,
+                Salary = nudSalary.Value,
                 Feedback = rtbFeedback.Text
             };
             employees.Add(newEmployee);

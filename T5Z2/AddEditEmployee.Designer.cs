@@ -44,7 +44,8 @@ namespace T5Z2
             this.btnCancel = new System.Windows.Forms.Button();
             this.tbEmploymentDate = new System.Windows.Forms.TextBox();
             this.tbDismissalDate = new System.Windows.Forms.TextBox();
-            this.tbSalary = new System.Windows.Forms.TextBox();
+            this.nudSalary = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -134,7 +135,7 @@ namespace T5Z2
             // 
             // rtbFeedback
             // 
-            this.rtbFeedback.Location = new System.Drawing.Point(127, 185);
+            this.rtbFeedback.Location = new System.Drawing.Point(127, 183);
             this.rtbFeedback.Name = "rtbFeedback";
             this.rtbFeedback.Size = new System.Drawing.Size(182, 96);
             this.rtbFeedback.TabIndex = 7;
@@ -174,13 +175,18 @@ namespace T5Z2
             this.tbDismissalDate.Size = new System.Drawing.Size(182, 20);
             this.tbDismissalDate.TabIndex = 5;
             // 
-            // tbSalary
+            // nudSalary
             // 
-            this.tbSalary.Location = new System.Drawing.Point(127, 157);
-            this.tbSalary.Name = "tbSalary";
-            this.tbSalary.Size = new System.Drawing.Size(182, 20);
-            this.tbSalary.TabIndex = 6;
-            this.tbSalary.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSalary_KeyPress);
+            this.nudSalary.DecimalPlaces = 2;
+            this.nudSalary.Location = new System.Drawing.Point(127, 157);
+            this.nudSalary.Maximum = new decimal(new int[] {
+            9999999,
+            0,
+            0,
+            0});
+            this.nudSalary.Name = "nudSalary";
+            this.nudSalary.Size = new System.Drawing.Size(182, 20);
+            this.nudSalary.TabIndex = 6;
             // 
             // AddEditEmployee
             // 
@@ -188,13 +194,13 @@ namespace T5Z2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(336, 328);
+            this.Controls.Add(this.nudSalary);
             this.Controls.Add(this.tbDismissalDate);
             this.Controls.Add(this.tbEmploymentDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.rtbFeedback);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.tbSalary);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblDismissalDate);
             this.Controls.Add(this.lblEmploymentDate);
@@ -207,6 +213,7 @@ namespace T5Z2
             this.Name = "AddEditEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddEditEmployee";
+            ((System.ComponentModel.ISupportInitialize)(this.nudSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +236,6 @@ namespace T5Z2
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbEmploymentDate;
         private System.Windows.Forms.TextBox tbDismissalDate;
-        private System.Windows.Forms.TextBox tbSalary;
+        private System.Windows.Forms.NumericUpDown nudSalary;
     }
 }
