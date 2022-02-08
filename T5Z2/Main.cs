@@ -50,13 +50,13 @@ namespace T5Z2
             {
                 case 1:
                     employeesList = (from emp in employeesList
-                                     where emp.DismissalDate == DateTime.MinValue
+                                     where emp.DismissalDate == null
                                      orderby emp.Id
                                      select emp).ToList();
                     break;
                 case 2:
                     employeesList = (from emp in employeesList
-                                     where emp.DismissalDate != DateTime.MinValue
+                                     where emp.DismissalDate != null
                                      orderby emp.Id
                                      select emp).ToList();
                     break;
@@ -125,7 +125,7 @@ namespace T5Z2
             var empFirstName = (string)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.FirstName)].Value;
             var empLastName = (string)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.LastName)].Value;
             var empEmploymentDate = (DateTime)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.EmploymentDate)].Value;
-            var empSalary = (int)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.Salary)].Value;
+            var empSalary = (decimal)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.Salary)].Value;
             var empComments = (string)dgvEmployees.SelectedRows[0].Cells[nameof(Employee.Feedback)].Value;
 
             employees.RemoveAll(emp => emp.Id == empId);
