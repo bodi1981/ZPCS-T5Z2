@@ -68,7 +68,7 @@ namespace T5Z2
                 FirstName = tbFirstName.Text,
                 LastName = tbLastName.Text,
                 EmploymentDate = dtpEmploymentDate.Value.Date,
-                DismissalDate = dtpDismissalDate.Checked ? dtpDismissalDate?.Value : null,
+                DismissalDate = dtpDismissalDate.Checked ? dtpDismissalDate?.Value.Date : null,
                 Salary = nudSalary.Value,
                 Feedback = rtbFeedback.Text
             };
