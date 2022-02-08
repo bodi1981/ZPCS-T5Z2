@@ -42,9 +42,9 @@ namespace T5Z2
             this.rtbFeedback = new System.Windows.Forms.RichTextBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tbEmploymentDate = new System.Windows.Forms.TextBox();
-            this.tbDismissalDate = new System.Windows.Forms.TextBox();
             this.nudSalary = new System.Windows.Forms.NumericUpDown();
+            this.dtpDismissalDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpEmploymentDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.nudSalary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,20 +161,6 @@ namespace T5Z2
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // tbEmploymentDate
-            // 
-            this.tbEmploymentDate.Location = new System.Drawing.Point(127, 105);
-            this.tbEmploymentDate.Name = "tbEmploymentDate";
-            this.tbEmploymentDate.Size = new System.Drawing.Size(182, 20);
-            this.tbEmploymentDate.TabIndex = 4;
-            // 
-            // tbDismissalDate
-            // 
-            this.tbDismissalDate.Location = new System.Drawing.Point(127, 131);
-            this.tbDismissalDate.Name = "tbDismissalDate";
-            this.tbDismissalDate.Size = new System.Drawing.Size(182, 20);
-            this.tbDismissalDate.TabIndex = 5;
-            // 
             // nudSalary
             // 
             this.nudSalary.DecimalPlaces = 2;
@@ -188,15 +174,33 @@ namespace T5Z2
             this.nudSalary.Size = new System.Drawing.Size(182, 20);
             this.nudSalary.TabIndex = 6;
             // 
+            // dtpDismissalDate
+            // 
+            this.dtpDismissalDate.Checked = false;
+            this.dtpDismissalDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDismissalDate.Location = new System.Drawing.Point(127, 131);
+            this.dtpDismissalDate.Name = "dtpDismissalDate";
+            this.dtpDismissalDate.ShowCheckBox = true;
+            this.dtpDismissalDate.Size = new System.Drawing.Size(182, 20);
+            this.dtpDismissalDate.TabIndex = 5;
+            // 
+            // dtpEmploymentDate
+            // 
+            this.dtpEmploymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpEmploymentDate.Location = new System.Drawing.Point(127, 105);
+            this.dtpEmploymentDate.Name = "dtpEmploymentDate";
+            this.dtpEmploymentDate.Size = new System.Drawing.Size(182, 20);
+            this.dtpEmploymentDate.TabIndex = 4;
+            // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(336, 328);
+            this.Controls.Add(this.dtpEmploymentDate);
+            this.Controls.Add(this.dtpDismissalDate);
             this.Controls.Add(this.nudSalary);
-            this.Controls.Add(this.tbDismissalDate);
-            this.Controls.Add(this.tbEmploymentDate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.rtbFeedback);
@@ -234,8 +238,8 @@ namespace T5Z2
         private System.Windows.Forms.RichTextBox rtbFeedback;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox tbEmploymentDate;
-        private System.Windows.Forms.TextBox tbDismissalDate;
         private System.Windows.Forms.NumericUpDown nudSalary;
+        private System.Windows.Forms.DateTimePicker dtpDismissalDate;
+        private System.Windows.Forms.DateTimePicker dtpEmploymentDate;
     }
 }

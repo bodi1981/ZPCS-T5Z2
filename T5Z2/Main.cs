@@ -109,6 +109,12 @@ namespace T5Z2
                 return;
             }
 
+            if (dgvEmployees.SelectedRows[0].Cells[nameof(Employee.DismissalDate)].Value != null)
+            {
+                MessageBox.Show($"Pracownik {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.FirstName)].Value} {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.LastName)].Value} został już zwolniony", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             DialogResult result = MessageBox.Show($"Czy chcesz zwolnić pracownika {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.FirstName)].Value} {dgvEmployees.SelectedRows[0].Cells[nameof(Employee.LastName)].Value}?", "Zwolnienie pracownika", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             
             if (result == DialogResult.Yes)

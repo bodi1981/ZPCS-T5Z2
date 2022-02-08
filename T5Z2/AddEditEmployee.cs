@@ -31,8 +31,9 @@ namespace T5Z2
                 tbId.Text = employee.Id.ToString();
                 tbFirstName.Text = employee.FirstName;
                 tbLastName.Text = employee.LastName;
-                tbEmploymentDate.Text = employee.EmploymentDate.HasValue ? ((DateTime)employee.EmploymentDate).ToString("yyyy-MM-dd") : String.Empty;
-                tbDismissalDate.Text = employee.DismissalDate?.ToString("yyyy-MM-dd") ?? string.Empty;
+                dtpEmploymentDate.Value = employee.EmploymentDate ?? DateTime.Today;
+                dtpDismissalDate.Value = employee.DismissalDate ?? DateTime.Today;
+                dtpDismissalDate.Checked = employee.DismissalDate.HasValue ? true : false;
                 nudSalary.Value = employee.Salary;
                 rtbFeedback.Text = employee.Feedback;
             }
@@ -55,18 +56,6 @@ namespace T5Z2
 
             AddNewEmployee(employees);
 
-            if (!ValidateDate(GetDate(tbEmploymentDate.Text)))
-            {
-                MessageBox.Show($"Wprowadzona {lblEmploymentDate.Text} jest nieprawidłowa", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!ValidateDate(GetDate(tbDismissalDate.Text)))
-            {
-                MessageBox.Show($"Wprowadzona {lblDismissalDate.Text} jest nieprawidłowa", "Błąd", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             JsonHelper<List<Employee>>.SerializeToJson(employees, Program.JsonPath);
             Close();
         }
@@ -78,8 +67,8 @@ namespace T5Z2
                 Id = _employeeId,
                 FirstName = tbFirstName.Text,
                 LastName = tbLastName.Text,
-                EmploymentDate = GetDate(tbEmploymentDate.Text),
-                DismissalDate = GetDate(tbDismissalDate.Text),
+                EmploymentDate = dtpEmploymentDate.Value.Date,
+                DismissalDate = dtpDismissalDate.Checked ? dtpDismissalDate?.Value : null,
                 Salary = nudSalary.Value,
                 Feedback = rtbFeedback.Text
             };
@@ -94,34 +83,6 @@ namespace T5Z2
 
             maxId++;
             return maxId;
-        }
-
-        private void tbSalary_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private DateTime? GetDate(string date)
-        {
-            if (date == "")
-                return null;
-            if (DateTime.TryParse(date, out DateTime validDate))
-            {
-                return validDate;
-            }
-            else
-                return DateTime.MaxValue;
-        }
-
-        private bool ValidateDate(DateTime? date)
-        {
-            if (date == DateTime.MaxValue)
-                return false;
-            else
-                return true;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
